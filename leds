@@ -1,0 +1,100 @@
+import RPi.GPIO as GPIO
+import time
+#librerias
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+
+GPIO.setup(3, GPIO.OUT)
+GPIO.setup(7, GPIO.IN)
+GPIO.setup(11, GPIO.IN)
+GPIO.setup(13, GPIO.IN)
+GPIO.setup(15, GPIO.IN)
+
+#defino los pines como entradas o salidas
+
+pul= 3
+led1= 7
+led2= 11
+led3= 13
+led4= 15
+
+#asigno nombres a los pines
+
+
+while GPIO.input(pul):
+
+#entro en ciclo while
+
+    GPIO.output(led1,0)
+    GPIO.output(led2,0)
+    GPIO.output(led3,0)
+    GPIO.output(led4,0)
+    time.sleep(1)
+    #todos los leds apagados para 0
+
+    GPIO.output(led1,0)        
+    GPIO.output(led2,0) 
+    GPIO.output(led3,0)
+    GPIO.output(led4,1)    
+    time.sleep(1)   
+    #led4 prendido para 1 (0001)
+
+    GPIO.output(led1,0)        
+    GPIO.output(led2,0) 
+    GPIO.output(led3,1)
+    GPIO.output(led4,0)    
+    time.sleep(1) 
+    #led3 prendido para 2 (0010)
+
+    GPIO.output(led1,0)        
+    GPIO.output(led2,0) 
+    GPIO.output(led3,1)
+    GPIO.output(led4,1)    
+    time.sleep(1)  
+    #led3 y led4 prendidos para 3 (0011)
+
+    GPIO.output(led1,0)        
+    GPIO.output(led2,1) 
+    GPIO.output(led3,0)
+    GPIO.output(led4,0)    
+    time.sleep(1)  
+    #led2 prendido para 4 (0100)
+
+    GPIO.output(led1,0)        
+    GPIO.output(led2,1) 
+    GPIO.output(led3,0)
+    GPIO.output(led4,1)    
+    time.sleep(1)   
+    #led2 y led4 prendidos para 5 (0101)
+
+
+    GPIO.output(led1,0)        
+    GPIO.output(led2,1) 
+    GPIO.output(led3,1)
+    GPIO.output(led4,0)    
+    time.sleep(1)   
+    #led2 y led3 prendidos para 6 (0110)
+
+    GPIO.output(led1,0)        
+    GPIO.output(led2,1) 
+    GPIO.output(led3,1)
+    GPIO.output(led4,1)    
+    time.sleep(1)   
+    #led2, led3 y led4 prendidos para 7 (0111)
+
+    GPIO.output(led1,1)        
+    GPIO.output(led2,0) 
+    GPIO.output(led3,0)
+    GPIO.output(led4,0)    
+    time.sleep(1)   
+    #led1 prendido para 8 (1000)
+
+    GPIO.output(led1,1)        
+    GPIO.output(led2,0) 
+    GPIO.output(led3,0)
+    GPIO.output(led4,1)    
+    time.sleep(1) 
+    #led1 y led4 prendidos para 9 (1001)
+
+GPIO.cleanup()
